@@ -15,7 +15,7 @@
     <asp:DropDownList ID="ddlDoktor" runat="server"></asp:DropDownList>
     <br /><br />
 
-    <asp:Button ID="btnPrikaz" runat="server" Text="Prikaz" OnClick="btnPrikaz_Click" />
+    <asp:Button ID="btnPrikaz" runat="server" Text="Prikaz" />
     <br /><br />
 
     <asp:GridView ID="GridView1" runat="server"></asp:GridView>
