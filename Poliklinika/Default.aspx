@@ -15,6 +15,9 @@
     <asp:DropDownList ID="ddlDoktor" runat="server"></asp:DropDownList>
     <br /><br />
 
+    <asp:Button ID="btnPrikaz" runat="server" Text="Prikaz" OnClick="btnPrikaz_Click" />
+    <br /><br />
+
     <asp:GridView ID="GridView1" runat="server"></asp:GridView>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EvidencijaPutnikaConnectionString %>" SelectCommand="SELECT * FROM [DOKTOR]"></asp:SqlDataSource>
