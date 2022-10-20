@@ -2,6 +2,20 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Naslov</h1>
+    <br /><br />
 
+    <h1>Prikaz pregleda</h1>
+    <br /><br />
+
+    <asp:Label ID="lblPacijent" runat="server" Text="Pacijent:"></asp:Label>
+    <asp:DropDownList ID="ddlPacijent" runat="server"></asp:DropDownList>
+    <br /><br />
+
+    <asp:Label ID="lblDoktor" runat="server" Text="Doktor:"></asp:Label>
+    <asp:DropDownList ID="ddlDoktor" runat="server"></asp:DropDownList>
+    <br /><br />
+
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EvidencijaPutnikaConnectionString %>" SelectCommand="SELECT * FROM [DOKTOR]"></asp:SqlDataSource>
 </asp:Content>
