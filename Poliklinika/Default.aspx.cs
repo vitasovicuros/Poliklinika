@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace Poliklinika
 {
@@ -11,7 +12,74 @@ namespace Poliklinika
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            FillDropDownListDoktor();
+            FillDropDownListPacijent();
+        }
 
+        protected void FillDropDownListDoktor()
+        {
+            ddlDoktor.Items.Clear();
+            ddlDoktor.Items.Add(new ListItem("Selektujte doktora"));
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = Connection.conString;
+            SqlDataReader reader;
+
+            SqlCommand cmd = new SqlCommand("Select IdDok, Ime, Prezime FROM DOKTOR",conn);
+
+            using(conn)
+            {
+                try
+                {
+                    conn.Open();
+                    reader = cmd.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        ListItem item = new ListItem();
+                        item.Text = reader["Ime"].ToString() + reader["Prezime"].ToString();
+                        item.Value = reader["IdDok"].ToString();
+                        ddlDoktor.Items.Add(item);
+                    }
+                    reader.Close();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        protected void FillDropDownListPacijent()
+        {
+            ddlDoktor.Items.Clear();
+            ddlDoktor.Items.Add(new ListItem("Selektujte pacijenta"));
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = Connection.conString;
+            SqlDataReader reader;
+
+            SqlCommand cmd = new SqlCommand("Select BrKnjizice, Ime, Prezime FROM Pacijent", conn);
+
+            using (conn)
+            {
+                try
+                {
+                    conn.Open();
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ListItem item = new ListItem();
+                        item.Text = reader["Ime"].ToString() + reader["Prezime"].ToString();
+                        item.Value = reader["BrKnjizice"].ToString();
+                        ddlPacijent.Items.Add(item);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }
