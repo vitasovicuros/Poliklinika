@@ -25,7 +25,7 @@ namespace Poliklinika
             conn.ConnectionString = Connection.conString;
             SqlDataReader reader;
 
-            SqlCommand cmd = new SqlCommand("Select IdDok, Ime, Prezime FROM DOKTOR",conn);
+            SqlCommand cmd = new SqlCommand("Select IdDok, Ime, Prezime FROM Doktor  ",conn);
 
             using(conn)
             {
@@ -36,7 +36,7 @@ namespace Poliklinika
                     while(reader.Read())
                     {
                         ListItem item = new ListItem();
-                        item.Text = reader["Ime"].ToString() + reader["Prezime"].ToString();
+                        item.Text = reader["Ime"].ToString() + " " +reader["Prezime"].ToString();
                         item.Value = reader["IdDok"].ToString();
                         ddlDoktor.Items.Add(item);
                     }
@@ -51,8 +51,8 @@ namespace Poliklinika
 
         protected void FillDropDownListPacijent()
         {
-            ddlDoktor.Items.Clear();
-            ddlDoktor.Items.Add(new ListItem("Selektujte pacijenta"));
+            ddlPacijent.Items.Clear();
+            ddlPacijent.Items.Add(new ListItem("Selektujte pacijenta"));
 
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.conString;
@@ -69,7 +69,7 @@ namespace Poliklinika
                     while (reader.Read())
                     {
                         ListItem item = new ListItem();
-                        item.Text = reader["Ime"].ToString() + reader["Prezime"].ToString();
+                        item.Text = reader["Ime"].ToString() + " " +reader["Prezime"].ToString();
                         item.Value = reader["BrKnjizice"].ToString();
                         ddlPacijent.Items.Add(item);
                     }
@@ -80,6 +80,11 @@ namespace Poliklinika
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        protected void btnPrikaz_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
