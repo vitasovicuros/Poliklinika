@@ -13,8 +13,11 @@ namespace Poliklinika
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillDropDownListPacijent();
-            FillDropDownListDoktor();
+            if (!Page.IsPostBack)
+            {
+                FillDropDownListPacijent();
+                FillDropDownListDoktor();
+            }
         }
 
         private void FillDropDownListPacijent()
@@ -85,5 +88,34 @@ namespace Poliklinika
             }
         }
 
+        private void UpisNovog()
+        {
+            string SqlInsert = "INSERT INTO Termin (IdDok, BrKnjizice) VALUES (";
+            SqlInsert += ddlIDdoktora.SelectedItem.Value+ ",";
+            SqlInsert += ddlBrKnjizice.SelectedItem.Value + ")";
+            SqlConnection con = new SqlConnection(Connection.conString);
+            SqlCommand cmd = new SqlCommand(SqlInsert, con);
+
+            using(con)
+            {
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch(Exception ex)
+                {
+                    Label1.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void btnDodaj_Click(object sender, EventArgs e)
+        {
+           
+                UpisNovog();
+            
+        }
     }
 }
