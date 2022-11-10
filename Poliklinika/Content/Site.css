@@ -2,6 +2,12 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url("slike/doctor-gce84231b2_1920.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height:100vh;
+    margin-top:50px;
 }
 
 /* Wrapping element */
@@ -27,5 +33,91 @@ textarea {
 
     .body-content {
         padding: 0;
+    }
+}
+
+#MainContent_btnPrikaz,
+#MainContent_btnDodaj{
+    border: 2px solid red;
+    border-radius: 25px;
+}
+
+.navbar-brand{
+    font-size: 50px;
+}
+
+a {
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 60px;
+    color: yellow;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: red;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+#MainContent_lblPacijent,
+#MainContent_lblDoktor {
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: yellow;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#MainContent_ddlPacijent,
+#MainContent_ddlDoktor {
+    font-size: 20px;
+    color: red;
+    border-radius: 25px;
+}
+#MainContent_GridView1 {
+    font-size: 20px;
+    border: 2px solid red;
+    text-align: center;
+    background-color: dimgrey;
+    color: yellow;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+#MainContent_Label3,
+#MainContent_Label4,
+#MainContent_Label2,
+#MainContent_Label1 {
+    font-size: 30px;
+    color: yellow;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+#MainContent_ddlBrKnjizice,
+#MainContent_ddlIDdoktora,
+#MainContent_txtVreme,
+#MainContent_txtDatum {
+    font-size: 20px;
+    color: red;
+    border-radius: 25px;
+}
+
+@keyframes example {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: yellow;
+    }
+
+    50% {
+        color: blue;
+    }
+
+    100% {
+        color: green;
     }
 }

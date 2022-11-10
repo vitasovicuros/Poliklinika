@@ -20,6 +20,6 @@
     <asp:TextBox ID="txtVreme" runat="server">hh:mm</asp:TextBox>
     <br />
     <br />
-    <asp:Button ID="btnDodaj" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" />
+    <asp:Button ID="btnDodaj" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" Height="38px" Width="216px" />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PoliklinkaConnectionString %>" SelectCommand="SELECT * FROM [Doktor]"></asp:SqlDataSource>
 </asp:Content>
