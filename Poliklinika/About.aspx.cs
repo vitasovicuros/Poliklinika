@@ -90,9 +90,11 @@ namespace Poliklinika
 
         private void UpisNovog()
         {
-            string SqlInsert = "INSERT INTO Termin (IdDok, BrKnjizice) VALUES (";
+            string SqlInsert = "INSERT INTO Termin (IdDok, BrKnjizice, Datum, Vreme) VALUES (";
             SqlInsert += ddlIDdoktora.SelectedItem.Value+ ",";
-            SqlInsert += ddlBrKnjizice.SelectedItem.Value + ")";
+            SqlInsert += ddlBrKnjizice.SelectedItem.Value + ",'";
+            SqlInsert += txtDatum.Text + "','";
+            SqlInsert += txtVreme.Text + "')";
             SqlConnection con = new SqlConnection(Connection.conString);
             SqlCommand cmd = new SqlCommand(SqlInsert, con);
 
