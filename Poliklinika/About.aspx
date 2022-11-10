@@ -4,23 +4,14 @@
     <h1>Dodavanje novog termina:</h1>
     <asp:Label ID="Label1" runat="server" Text="Broj knjizice:"></asp:Label>
     &nbsp;&nbsp;
-    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="ddlBrojKnjizice" runat="server"></asp:DropDownList>
     <br />
     <br />
     <asp:Label ID="Label2" runat="server" Text="ID doktora:"></asp:Label>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="ddlIDdoktora" runat="server"></asp:DropDownList>
     <br />
     <br />
-    <asp:Label ID="Label3" runat="server" Text="Datum:"></asp:Label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="Label4" runat="server" Text="Vreme:"></asp:Label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Button ID="Button1" runat="server" Text="Dodaj" />
+    <asp:Button ID="btnDodaj" runat="server" Text="Dodaj" />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PoliklinkaConnectionString %>" SelectCommand="SELECT * FROM [Doktor]"></asp:SqlDataSource>
 </asp:Content>
