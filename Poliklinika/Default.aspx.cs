@@ -85,42 +85,47 @@ namespace Poliklinika
                 }
             }
         }
-/*
+
         protected void btnPrikaz_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Connection.conString;
             SqlDataReader reader;
-            string SqlSelect = "Select IdDok, BrKnjizice, Datum, Vreme From Termin";
+            string SqlSelect = "Select Termin.IdDok AS IdDok, Termin.BrKnjizice AS BrKnjizice, Doktor.Ime + ' ' + Doktor.Prezime AS ImeDoktor, Pacijent.Ime + ' ' + Pacijent.Prezime AS ImePacijent, Datum, Vreme From Termin JOIN Pacijent ON Termin.BrKnjizice = Pacijent.BrKnjizice JOIN Doktor ON Termin.IdDok = Doktor.IdDok";
             if(ddlDoktor.SelectedItem.Text != "Selektujte doktora" && ddlPacijent.SelectedItem.Text != "Selektujte pacijenta")
             {
-                SqlSelect += "WHERE IdDok=" + ddlDoktor.SelectedItem.Value + "OR BrKnjizice=" + ddlPacijent.SelectedItem.Value;
+                SqlSelect += " WHERE Termin.IdDok= " + ddlDoktor.SelectedItem.Value + " AND Termin.BrKnjizice= " + ddlPacijent.SelectedItem.Value;
             }
             else if(ddlDoktor.SelectedItem.Text != "Selektujte doktora" && ddlPacijent.SelectedItem.Text == "Selektujte pacijenta")
             {
-                SqlSelect += "WHERE IdDok=" + ddlDoktor.SelectedItem.Value;
+                SqlSelect += " WHERE Termin.IdDok= " + ddlDoktor.SelectedItem.Value;
             }
             else if(ddlDoktor.SelectedItem.Text == "Selektujte doktora" && ddlPacijent.SelectedItem.Text != "Selektujte pacijenta")
             {
-                SqlSelect += "WHERE BrKnjizice=" + ddlPacijent.SelectedItem.Value;
+                SqlSelect += " WHERE Termin.BrKnjizice= " + ddlPacijent.SelectedItem.Value;
             }
             
             SqlCommand cmd = new SqlCommand(SqlSelect, conn);
-
+            
+            
             using(conn)
             {
                 conn.Open();
                 reader = cmd.ExecuteReader();
                 DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("ID Doktora");
-                dataTable.Columns.Add("Broj knjizice");
+                dataTable.Columns.Add("IdDok");
+                dataTable.Columns.Add("ImeDoktor");
+                dataTable.Columns.Add("BrKnjizice");
+                dataTable.Columns.Add("ImePacijent");
                 dataTable.Columns.Add("Datum");
                 dataTable.Columns.Add("Vreme");
                 while (reader.Read())
                 {
                     DataRow row = dataTable.NewRow();
-                    row["ID Doktora"] = reader["IdDok"];
-                    row["Broj knjizice"] = reader["BrKnjizice"];
+                    row["IdDok"] = reader["IdDok"];
+                    row["ImeDoktor"] = reader["ImeDoktor"];
+                    row["BrKnjizice"] = reader["BrKnjizice"];
+                    row["ImePacijent"] = reader["ImePacijent"];
                     row["Datum"] = reader["Datum"];
                     row["Vreme"] = reader["Vreme"];
 
@@ -129,6 +134,6 @@ namespace Poliklinika
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
             }
-        }*/
+        }
     }
 }

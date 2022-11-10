@@ -24,7 +24,16 @@
     <asp:Button ID="btnPrikaz" runat="server" Text="Prikaz" OnClick="btnPrikaz_Click" Width="94px" />
     <br /><br />
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"></asp:GridView>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="IdDok" HeaderText="Id doktora" />
+            <asp:BoundField DataField="ImeDoktor" HeaderText="Doktor" />
+            <asp:BoundField DataField="BrKnjizice" HeaderText="Broj Knjizica" />
+            <asp:BoundField DataField="ImePacijent" HeaderText="Pacijent" />
+            <asp:BoundField DataField="Datum" HeaderText="Datum" />
+            <asp:BoundField DataField="Vreme" HeaderText="Vreme" />
+        </Columns>
+    </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PoliklinikaConnectionString %>" SelectCommand="SELECT * FROM [Doktor]"></asp:SqlDataSource>
  
 </asp:Content>
