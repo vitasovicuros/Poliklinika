@@ -3,8 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Dodavanje novog termina:</h1>
     <asp:Label ID="Label1" runat="server" Text="Broj knjizice:"></asp:Label>
-    &nbsp;&nbsp;
-    <asp:DropDownList ID="ddlBrojKnjizice" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="ddlBrKnjizice" runat="server"></asp:DropDownList>
+    &nbsp;&nbsp;<br />
     <br />
     <br />
     <asp:Label ID="Label2" runat="server" Text="ID doktora:"></asp:Label>

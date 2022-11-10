@@ -16,10 +16,10 @@ namespace Poliklinika
 
         }
 
-        private void FillDropDownLists()
+        public void FillDropDownLists()
         {
-            ddlBrojKnjizice.Items.Clear();
-            ddlBrojKnjizice.Items.Add(new ListItem("Selektujte broj knjizice"));
+            ddlBrKnjizice.Items.Clear();
+            ddlBrKnjizice.Items.Add(new ListItem("Selektujte broj knjizice"));
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Connection.conString;
             SqlDataReader reader;
@@ -37,7 +37,7 @@ namespace Poliklinika
                         ListItem item = new ListItem();
                         item.Text = reader["Ime"].ToString() + " " + reader["Prezime"].ToString();
                         item.Value = reader["BrKnjizice"].ToString();
-                        ddlBrojKnjizice.Items.Add(item);
+                        ddlBrKnjizice.Items.Add(item);
                     }
                     reader.Close();
                 }
@@ -46,6 +46,13 @@ namespace Poliklinika
                     Console.WriteLine(ex.Message);
                 }
             }
+
+
+        }
+
+        protected void ddlBrojKnjizice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
