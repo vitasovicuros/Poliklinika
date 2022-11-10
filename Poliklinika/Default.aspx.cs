@@ -85,7 +85,7 @@ namespace Poliklinika
                 }
             }
         }
-
+/*
         protected void btnPrikaz_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection();
@@ -129,6 +129,6 @@ namespace Poliklinika
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
             }
-        }
+        }*/
     }
 }
