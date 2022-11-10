@@ -24,7 +24,7 @@
     <asp:Button ID="btnPrikaz" runat="server" Text="Prikaz" OnClick="btnPrikaz_Click" Width="94px" />
     <br /><br />
 
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EvidencijaPutnikaConnectionString %>" SelectCommand="SELECT * FROM [Doktor]"></asp:SqlDataSource>
 </asp:Content>
