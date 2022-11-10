@@ -7,6 +7,6 @@ namespace Poliklinika
 {
     public class Connection
     {
-        public static string conString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=True";
+        public static string conString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Poliklinika;Integrated Security=True";
     }
 }
